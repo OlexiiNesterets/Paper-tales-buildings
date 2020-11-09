@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building randomizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="content">
+        <div id="buildings" class="buildings">Жми GO!</div>
+        <button id="go" class="button">GO!</button>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+<script>
+    const buildingsElem = document.getElementById('buildings');
+
+    document.getElementById('go').addEventListener('click', function() {
+        buildingsElem.innerHTML = '';
+        getBuildings();
+    });
+
+    function getBuildings() {
+        const buildings = ['Казарма', 'Аббатство', 'Чёрный рынок', 'Склеп', 'Зал совещаний', 'Порт', 'Библиотека'];
+        const shuffled = _.shuffle(buildings).slice(0, 3).sort();
+        shuffled.forEach(building => {
+            buildingsElem.insertAdjacentHTML('beforeend', `<p class="building">${building}</p>`);
+        });
+    }
+</script>
+
+</html>
