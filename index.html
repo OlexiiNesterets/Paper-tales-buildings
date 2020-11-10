@@ -24,7 +24,7 @@
     });
 
     function getBuildings() {
-        const buildings = ['Казарма', 'Аббатство', 'Чёрный рынок', 'Склеп', 'Зал совещаний', 'Порт', 'Библиотека'];
+        const buildings = ['Казармы', 'Аббатство', 'Чёрный рынок', 'Склеп', 'Зал совещаний', 'Порт', 'Библиотека'];
         const shuffled = _.shuffle(buildings).slice(0, 3).sort();
         shuffled.forEach(building => {
             buildingsElem.insertAdjacentHTML('beforeend', `<p class="building">${building}</p>`);
